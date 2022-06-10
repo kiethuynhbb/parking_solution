@@ -14,3 +14,5 @@ upon. So again, keep this flexible and configurable.
 
 Your task is to develop a simulation program for the garage. Vehicles should be able to enter and exit the garage – the
 garage should then assign a free space or reject the vehicle if there are no more free parking lots. 
+
+![image](https://user-images.githubusercontent.com/71831162/172992404-26f278cb-5399-4da5-9e37-eb858bcd0f79.png)
