@@ -5,17 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Application\**" />
+    <Content Remove="Application\**" />
+    <EmbeddedResource Remove="Application\**" />
+    <None Remove="Application\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="WeatherForecast.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\App.Services\App.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Application\angular\" />
-    <Folder Include="Application\reactjs\" />
   </ItemGroup>
 
 

@@ -5,29 +5,27 @@ using Application.Common.Interfaces;
 using System.Threading.Tasks;
 using App.DataProvider.EntityMappers;
 using DataAccessLayer.SeedData;
+using Microsoft.Data.Sqlite;
 
 namespace App.DataProvider
 {
     public class ParkingBoundedContext : DbContext
     {
-        //private const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=EFCoreDataSeed;Trusted_Connection=True;";
-
         public ParkingBoundedContext(DbContextOptions options) : base(options)
         {
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(connectionString);
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+        }
 
-        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Vehicle> Vehicle { get; set; }
 
-        public DbSet<Level> Levels { get; set; }
+        public DbSet<Level> Level { get; set; }
 
-        public DbSet<Capacity> Capacities { get; set; }
+        public DbSet<Capacity> Capacity { get; set; }
 
-        public DbSet<Parking> Parkings { get; set; }
+        public DbSet<Parking> Parking { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

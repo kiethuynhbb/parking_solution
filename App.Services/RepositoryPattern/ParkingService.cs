@@ -27,7 +27,7 @@ namespace App.Services.RepositoryPattern
         {
             try
             {
-                var vehicle = _parkingDBContext.Vehicles
+                var vehicle = _parkingDBContext.Vehicle
                                            .Where(x => x.LicenseNo == license);
 
                 if (vehicle.Any())
@@ -41,7 +41,7 @@ namespace App.Services.RepositoryPattern
                         EndDate = null
                     };
 
-                    await _parkingDBContext.Parkings.AddAsync(parking);
+                    await _parkingDBContext.Parking.AddAsync(parking);
 
                     await _parkingDBContext.SaveChangesAsync();
                     return true;
@@ -53,7 +53,7 @@ namespace App.Services.RepositoryPattern
                         LicenseNo = license
                     };
 
-                    var result = await _parkingDBContext.Vehicles.AddAsync(vehicleData);
+                    var result = await _parkingDBContext.Vehicle.AddAsync(vehicleData);
 
                     await _parkingDBContext.SaveChangesAsync();
 
@@ -66,7 +66,7 @@ namespace App.Services.RepositoryPattern
                         EndDate = null
                     };
 
-                    await _parkingDBContext.Parkings.AddAsync(parking);
+                    await _parkingDBContext.Parking.AddAsync(parking);
 
                     await _parkingDBContext.SaveChangesAsync();
                     return true;
@@ -83,10 +83,10 @@ namespace App.Services.RepositoryPattern
         {
             try
             {
-                var numberOfFreeLot = _parkingDBContext.Capacities
+                var numberOfFreeLot = _parkingDBContext.Capacity
                                             .Where(x => x.Level.Id == level).SingleOrDefault().Amount;
 
-                var parkingLots = _parkingDBContext.Parkings
+                var parkingLots = _parkingDBContext.Parking
                                            .Where(x => x.LevelId == level).Sum(x => x.Id);
 
                 numberOfFreeLot = numberOfFreeLot - parkingLots;
@@ -103,14 +103,14 @@ namespace App.Services.RepositoryPattern
         {
             try
             {
-                var dataExists = _parkingDBContext.Parkings.Where(c => c.CardNo.Equals(cardNo)).SingleOrDefault();
+                var dataExists = _parkingDBContext.Parking.Where(c => c.CardNo.Equals(cardNo)).SingleOrDefault();
 
                 dataExists.EndDate = DateTime.Now;
 
                 _parkingDBContext.SaveChanges();
 
 
-                var vehicle = _parkingDBContext.Vehicles
+                var vehicle = _parkingDBContext.Vehicle
                                            .Where(x => x.LicenseNo == license && !x.ProvidedBy.HasValue && !x.ProvidedDate.HasValue);
 
                 if (vehicle.Any())

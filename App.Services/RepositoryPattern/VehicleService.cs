@@ -26,7 +26,7 @@ namespace App.Services.RepositoryPattern
         {
             try
             {
-                var db = await _parkingDBContext.Vehicles.ToListAsync();
+                var db = await _parkingDBContext.Vehicle.ToListAsync();
 
 
                 return _mapper.Map<List<VehicleDto>>(db);
@@ -41,7 +41,7 @@ namespace App.Services.RepositoryPattern
         {
             try
             {
-                var db = _parkingDBContext.Vehicles.Where(x => x.Type == id).SingleOrDefault();
+                var db = _parkingDBContext.Vehicle.Where(x => x.Type == id).SingleOrDefault();
 
                 var temp = _mapper.Map<VehicleDto>(db);
                 return temp;

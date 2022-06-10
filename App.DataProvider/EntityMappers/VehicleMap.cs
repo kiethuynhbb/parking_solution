@@ -11,7 +11,7 @@ namespace App.DataProvider.EntityMappers
     {
         public void Configure(EntityTypeBuilder<Vehicle> builder)
         {
-            var entitybuilder = builder.ToTable("Vehicles");
+            var entitybuilder = builder.ToTable("Vehicle");
             entitybuilder.HasKey(x => x.Id)
                    .HasName("pk_vehicle");
 
