@@ -16,3 +16,7 @@ Your task is to develop a simulation program for the garage. Vehicles should be 
 garage should then assign a free space or reject the vehicle if there are no more free parking lots. 
 
 ![image](https://user-images.githubusercontent.com/71831162/172992404-26f278cb-5399-4da5-9e37-eb858bcd0f79.png)
+
+How to build:
+- Open and build on Visual Studio
+- For DB: find the Parking.bak to restore it or run the script (migration_db.sql) in SQL server.
