@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.DataProvider\App.DataProvider.csproj" />
+    <ProjectReference Include="..\App.Entities\App.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
