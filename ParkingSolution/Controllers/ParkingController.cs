@@ -33,8 +33,15 @@ namespace ParkingSolution.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var result = await _parkingService.Assign(license, level, cardNo);
-                    return Ok(result);
+                    var numberOfLot = _parkingService.NumberOfLot(level);
+
+                    if (numberOfLot > 0)
+                    {
+                        var result = await _parkingService.Assign(license, level, cardNo);
+                        return Ok(result);
+                    }
+                   else
+                        return BadRequest("No parking space");
                 }
                 else
                 {
